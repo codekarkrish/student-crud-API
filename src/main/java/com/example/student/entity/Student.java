@@ -4,6 +4,7 @@ package com.example.student.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 /*you told Spring Boot + JPA:
@@ -12,10 +13,40 @@ import jakarta.persistence.GeneratedValue;
 public class Student {
 
     @Id
-    @GeneratedValue
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    String name;
-    String email;
-    String course;
+    private String name;
+    private String email;
+    private String course;
+
+
+    // getter and setter add gerne
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void  setEmail(String email){
+        this.email = email;
+    }
+    public String getCourse(){
+        return course;
+
+    }
+    public void setCourse(String course){
+        this.course = course;
+    }
 }
